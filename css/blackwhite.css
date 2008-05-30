@@ -1,0 +1,48 @@
+
+@import url(main.css);
+
+body {
+    color: black;
+    background: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    background: black;
+}
+
+a:link, a:visited {
+    color: black;
+    background: inherit;
+}
+
+a:hover {
+    color: white;
+    background: black;
+}
+
+pre.example, kbd {
+    color: black;
+    background: silver;
+    border: 1px solid black;
+}
+
+table {
+    color: black;
+    background: white;
+}
+
+
+thead {
+    color: gray;
+    background: inherit;
+}
+
+td {
+    border: 1px solid black;
+}
+
+caption {
+    color: white;
+    background: gray;
+}

@@ -1,0 +1,46 @@
+<!-- DTD for ESXX application definitions.
+
+     The public ID for this DTD is:
+     '-//Martin Blom//DTD ESXX Application 1.0//EN'
+-->
+
+<!ELEMENT esxx			(info?, handlers) >
+<!ATTLIST esxx			xmlns CDATA
+				#FIXED "http://esxx.org/1.0/" >
+
+<!ELEMENT info			(title,
+				 version,
+				 vendor,
+				 copyright,
+				 author+,
+				 description) >
+
+<!ELEMENT title			(#PCDATA) >
+<!ELEMENT version		(#PCDATA) >
+<!ELEMENT vendor		(#PCDATA) >
+<!ELEMENT copyright		(#PCDATA) >
+<!ELEMENT author		(#PCDATA) >
+<!ELEMENT description		(#PCDATA) >
+
+<!ELEMENT handlers		((http | soap)+,
+                                stylesheet*,
+				error?) >
+
+<!ELEMENT http			EMPTY >
+<!ELEMENT soap			EMPTY >
+<!ELEMENT stylesheet		EMPTY >
+<!ELEMENT error			EMPTY >
+
+
+<!ATTLIST http			method		NMTOKEN #REQUIRED >
+<!ATTLIST http			uri		NMTOKEN #IMPLIED >
+<!ATTLIST http			handler		CDATA #REQUIRED >
+
+<!ATTLIST soap			action		CDATA #IMPLIED>
+<!ATTLIST soap			object		NMTOKEN #REQUIRED >
+
+<!ATTLIST error			handler		NMTOKEN #REQUIRED >
+
+<!ATTLIST stylesheet		media-type	CDATA #IMPLIED >
+<!ATTLIST stylesheet		href		CDATA #IMPLIED >
+<!ATTLIST stylesheet		type		CDATA #FIXED "text/xsl" >

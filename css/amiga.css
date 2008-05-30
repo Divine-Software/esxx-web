@@ -1,0 +1,195 @@
+
+/* AmigaOS 1.x screen colors:
+   blue:         #05a
+   black:        #002
+   white:        #fff
+   orange:       #f80
+
+   AmigaOS 1.x pointer colors:
+   red:          #d22
+   black:        #000
+   light yellow: #fca
+
+   Nicer?
+   blue:         #5a66bb
+   black:        black
+   white:        white
+   orange:       #ec9f00
+   red:          #d7392d
+   light yellow: #f8d6b6
+*/
+
+@import url(main.css);
+
+body 
+{
+    color: #fff;
+    background: #05a;
+    cursor: url(/gfx/pointer.cur) 2 2, auto;
+    cursor: url(/gfx/pointer.cur) /* IE */; 
+}
+
+body.ie_scrollbar {
+    /* Non-standard CSS properties make the scroll bar look
+       more like AmigaOS 1.x in IE. */
+
+    scrollbar-base-color: #05a;
+    scrollbar-track-color: #05a;
+    scrollbar-face-color: #fff;
+    scrollbar-arrow-color: #05a;
+
+    scrollbar-3dlight-color: #05a;
+    scrollbar-highlight-color: #05a;
+
+    scrollbar-shadow-color: #05a;
+    scrollbar-darkshadow-color: #05a;
+
+    /* Hack to create a white line left of the scroll bar */
+    margin: 0px;
+    border-right: 3px solid #fff;
+    padding: 0px;
+}
+
+div.ie_scrollbar 
+{
+    /* Hack to create a white line right of the scroll bar */
+    border-right: 3px solid #fff;
+    margin: 0px;
+    padding: 8px;
+}
+
+div.ie_scrollbar pre
+{
+    width: 98%; /* for IE scrollbar hack */
+}
+
+div.ie_scrollbar table
+{
+    width: 96%; /* for IE scrollbar hack */
+}
+
+.lazy 
+{
+    cursor: url(/gfx/busy.cur) 16 16, auto;
+    cursor: url(/gfx/busy.cur) /* IE */;
+}
+
+::-moz-selection
+{
+  color: #002;
+  background-color: #f80;
+}
+
+h1, h2, h3, h4, h5, h6 
+{
+    color: #002;
+    background: #fff;
+/*
+    background-image: url("../gfx/os1.2-title.gif");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;*/
+}
+
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, h6::-moz-selection,
+h1 *::-moz-selection, h2 *::-moz-selection, h3 *::-moz-selection, h4 *::-moz-selection, h5 *::-moz-selection, h6 *::-moz-selection
+{
+    color: #fff;
+    background: #002;
+}
+
+a:link, a:visited
+{
+    color: #fff;
+    background: inherit;
+    cursor: url(/gfx/pointer.cur) 2 2, pointer;
+    cursor: url(/gfx/pointer.cur) /* IE */;
+}
+
+input
+{
+    cursor: url(/gfx/pointer.cur) 2 2, pointer;
+    cursor: url(/gfx/pointer.cur) /* IE */;
+}
+
+a:hover 
+{
+    color: #d22;
+    background: #fca;
+}
+
+
+pre.example, kbd
+{
+    color: #f80;
+    background: #002;
+    border: 1px solid #fff;
+}
+
+pre.example::-moz-selection,
+pre.example *::-moz-selection,
+kbd::-moz-selection,
+kbd *::-moz-selection
+{
+  color: #05a;
+  background-color: #fff;
+}
+
+
+table 
+{
+    color: #fff;
+    background: #002;
+}
+
+
+table *::-moz-selection
+{
+  color: #002;
+  background-color: #fff;
+}
+
+
+thead 
+{
+    color: #f80;
+    background: #002;
+}
+
+thead *::-moz-selection
+{
+  color: #05a;
+  background-color: #fff;
+}
+
+
+td 
+{
+    border: 1px solid #fff;
+}
+
+caption 
+{
+    color: #fff;
+    background: #f80;
+}
+
+caption::-moz-selection,
+caption *::-moz-selection
+{
+    color: #002;
+    background: #05a;
+}
+
+
+.crap {
+    visibility: visible;
+}
+
+.css2 {
+    /* This style sheet is not strict CSS 2 ... */
+    visibility: hidden;
+}
+
+#menu {
+    border-bottom: solid white 1px;
+}

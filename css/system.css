@@ -1,0 +1,43 @@
+
+@import url(main.css);
+
+body {
+    color: WindowText;
+    background: Window;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: HighlightText;
+    background: Highlight;
+}
+
+a:link, a:visited {
+    color: ButtonText;
+    background: ButtonFace;
+}
+
+pre.example, kbd {
+    color: InfoText;
+    background: InfoBackground;
+    border: 1px solid InfoText;
+}
+
+table {
+    color: MenuText;
+    background: Menu;
+}
+
+
+thead {
+    color: InfoText;
+    background: InfoBackground;
+}
+
+td {
+    border: 1px solid MenuText;
+}
+
+caption {
+    color: CaptionText;
+    background: ActiveCaption;
+}
