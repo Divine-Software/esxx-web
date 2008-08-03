@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE page [
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
+<!ENTITY % HTMLlat1    SYSTEM "xhtml-lat1.ent">
+<!ENTITY % HTMLsymbol  SYSTEM "xhtml-symbol.ent">
+
+%HTMLspecial;
+%HTMLlat1;
+%HTMLsymbol;
+]>
+
+<page xmlns="http://www.w3.org/1999/xhtml" title="Rationale">
+
+<p>This page tries to explain some of the design decisions made while
+developing ESXX.</p>
+
+
+<h2>Filter chains</h2>
+
+<p>While sometimes useful, invoking custom filters is just one line of
+code, right before or after the actual request processing code. So
+instead of specifying filter rules in some distant XML file, you specify
+it right in the request handler. I believe that's a more suitable place
+for it.</p>
+
+
+<h2>O/R mapping</h2>
+
+<p>An object-relational mapper tries to make a relational database into
+something that it isn't. ESXX uses a dynamically typed language and XML,
+so working directly with SQL databases is really easy. And by using a
+hand-designed database schema, your database is easily accessible from
+other programs and languages as well.</p>
+
+<p>Much can be said in this matter, but my view is that relational
+databases should be used the way they were designed to be used, and that
+you should write your applications accordingly. If all you need is a way
+to store your objects and and able to retrieve them by key or simple
+queries, an index databases such as <dfn>Lucene</dfn>
+or <dfn>Xapian</dfn> could be another option.</p>
+
+<h3>Pitfalls</h3>
+
+<p>Pretending the RDMS is an object storage easily results in suboptimal
+perfromance, no matter if automatic object-relational mapping is used or
+not.  Consider the following example, from the Spring MVC tutorial.
+(Admittedly, MVC-step-by-step is just a tutorial, but isn't the whole
+point of a tutorial to show how to best use your product?)</p>
+
+<pre class="example">// From ProductManager.java in MVC-step-by-step
+public void increasePrice(int pct) {
+    ListIterator li = products.listIterator();
+    while (li.hasNext()) {
+        Product p = (Product) li.next();
+        pmd.increasePrice(p, pct);
+    }
+}
+
+// From ProductManagerDaoJdbc.java in MVC-step-by-step
+public void increasePrice(Product prod, int pct) {
+    logger.info("Increasing price by " + pct + "%");
+    SqlUpdate su = 
+        new SqlUpdate(ds, "update products set price = price * (100 + ?) / 100 where id = ?");
+    su.declareParameter(new SqlParameter("increase", Types.INTEGER));
+    su.declareParameter(new SqlParameter("ID", Types.INTEGER));
+    su.compile();
+    Object[] oa = new Object[2];
+    oa[0] = new Integer(pct);
+    oa[1] = new Integer(prod.getId());
+    int count = su.update(oa);
+    logger.info("Rows affected: " + count);
+}
+</pre>
+
+<p>In the tutorial, <em>every</em> call to
+<code>ProductManagerDaoJdbc.increasePrice()</code> compiles and executes
+one SQL query.</p>
+
+<p>In ESXX you would have written method as follows, which compiles the
+query only once, when it's first executed, and then updates all product
+prices at once each time <code>ProductManager.increasePrice()</code> is
+called.</p>
+
+<pre class="example">// From app-form-sql-pm.js
+function ProductManager.prototype.increasePrice(pct) {
+  this.db.query("UPDATE products SET price = price * (100 + {percent}) / 100",
+                { percent: pct });
+}</pre>
+
+<p>If you're going to use a relational database, it helps knowing how
+they work.</p>
+
+
+<h3>Black and white?</h3>
+
+<p>Nothing is absolute. Automatic O/R mapping has many benefits, and
+database independence is one of them.</p>
+
+<p>It's a bit like REST vs. SOAP-RPC: do you view the web as resources
+that can be modified, or objects with methods? I prefer REST, but won't
+prevent you from using SOAP; in the same way, I prefer the relational
+view, but I will obviously not prevent you from using the RDBMS as an
+object store.</p>
+
+
+<h2>Automatic session handling and continuations</h2>
+
+<p>HTTP is a stateless protocol, and that's really a good thing. Writing
+web applications the same way you would write a local-only application
+will sooner or later end in tears, either for you or for your
+users.</p>
+
+<p>Use the protocol to your advantage, and let the database or the
+client worry about state. Stateless web applications are almost
+indefinitely scalable &mdash; isn't that great? And modern web browsers
+and client frameworks makes it painless to run almost all of the UI on
+the client.</p>
+
+<p>Yet sometimes you just don't care about scalability. For these
+situations, you'll be happy to hear that keeping state on a single node
+is as easy as using a global hash object, since ESXX applications are
+long-lived on each node.</p>
+</page>

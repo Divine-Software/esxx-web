@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<!-- Import application -->
+<?esxx-include href="index.js" ?>
+
+<esxx xmlns="http://esxx.org/1.0/">
+  <settings xmlns="">
+    <maxAge>3600</maxAge>
+  </settings>
+
+  <!-- ESXX configuration -->
+  <handlers>
+    <!-- Page handlers -->
+    <http handler="main.page"     method="GET" uri="/(?{page}\w+\.html)?"/>
+    <http handler="main.notFound" method="GET" uri="/(?{page}.*)"/>
+
+    <!-- Error handler -->
+    <error handler="main.error"/>
+
+    <!-- Stylesheet -->
+    <stylesheet media-type="text/html" href="index.xslt"/>
+  </handlers>
+</esxx>
