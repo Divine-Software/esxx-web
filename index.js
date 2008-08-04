@@ -14,19 +14,36 @@ function Main.prototype.page(req) {
     // started. Calculate the Expires header based on settings.maxAge
     // in 'index.esxx'.
 
-    var last_modified = Math.max(this.started, file_info.lastModified);
+    var last_modified = Math.round(Math.max(this.started, file_info.lastModified) / 1000) * 1000;
     var max_age       = esxx.document.settings.maxAge;
     var expires       = new Date().getTime() + max_age * 1000;
+
+    var headers       = {
+      "Last-Modified":  new Date(last_modified).toUTCString(),
+      "Cache-Control":  "max-age=" + max_age + ", public",
+      "Expires":        new Date(expires).toUTCString()
+    };
+
+    var if_modified_since = req.headers["If-Modified-Since"];
+    
+    if (if_modified_since) {
+      // Convert to ms
+      if_modified_since = new Date(if_modified_since).getTime();
+
+      if (if_modified_since >= last_modified) {
+	return new Response(304, headers, null, "text/html");
+      }
+    }
 
     // Load the file and hand it over to the 'text/html' style-sheet.
     var body = new URI(file_info.@uri).load();
 
-    return new Response(200, {
-	"Last-Modified": new Date(last_modified).toUTCString(),
-	"Cache-Control": "max-age=" + max_age + ", public",
-	"Expires":       new Date(expires).toUTCString() 
-      }, body, "text/html");
+    var rc = new Response(200, headers, body, "text/html");
+
+    // Enable Content-Length header
+    rc.buffered = true;
     
+    return rc;
   }
   else {
     // Display the page-not-found view
