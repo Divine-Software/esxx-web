@@ -25,24 +25,26 @@ function Main.prototype.page(req) {
     };
 
     var if_modified_since = req.headers["If-Modified-Since"];
-    
+
     if (if_modified_since) {
       // Convert to ms
       if_modified_since = new Date(if_modified_since).getTime();
 
       if (if_modified_since >= last_modified) {
-	return new Response(304, headers, null, "text/html");
+	return new ESXX.Response(ESXX.Response.NOT_MODIFIED, headers,
+				 null, "text/html");
       }
     }
 
     // Load the file and hand it over to the 'text/html' style-sheet.
     var body = new URI(file_info.@uri).load();
 
-    var rc = new Response(200, headers, body, "text/html");
+    var rc = new ESXX.Response(ESXX.Response.OK, headers,
+			       body, "text/html");
 
     // Enable Content-Length header
     rc.buffered = true;
-    
+
     return rc;
   }
   else {
@@ -54,12 +56,14 @@ function Main.prototype.page(req) {
 function Main.prototype.notFound(req) {
   var page = req.args.page || "index.html";
 
-  return new Response(404, {}, <not-found>{page}</not-found>, "text/html");
+  return new ESXX.Response(ESXX.Response.NOT_FOUND, {},
+			   <not-found>{page}</not-found>, "text/html");
 }
 
 function Main.prototype.error(req, ex) {
   // Display the error view
-  return new Response(500, {}, <error>{ex}</error>, "text/html");
+  return new ESXX.Response(ESXX.Response.INTERNAL_SERVER_ERROR, {},
+			   <error>{ex}</error>, "text/html");
 }
 
 var main = new Main();
