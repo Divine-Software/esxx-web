@@ -58,6 +58,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </td>
 <td>
+Search this site, the blog and the wiki:<br/>
 <form action="http://www.google.com/cse" id="cse-search-box">
   <div>
     <input type="hidden" name="cx" value="partner-pub-2115989180089866:ayx3ndbp8fl" />
