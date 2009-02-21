@@ -193,3 +193,7 @@ caption *::-moz-selection
 #menu {
     border-bottom: solid white 1px;
 }
+
+#footer {
+    border-top: solid white 1px;
+}

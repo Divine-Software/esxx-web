@@ -103,6 +103,9 @@ caption {
     padding: 1em;
 }
 
+#footer {
+    border-top: solid black 1px;
+}
 
 #switcher {
     position: fixed;

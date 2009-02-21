@@ -77,6 +77,7 @@ Search this site, the blog and the wiki:<br/>
 <div id="menu">
 <ul>
 <li><a href="index.html">Main</a></li>
+<li><a href="examples.html">Examples</a></li>
 <li><a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">Wiki</a></li>
 <li><a href="http://esxx.blogspot.com/">Blog</a></li>
 <li><a href="http://developer.berlios.de/project/showfiles.php?group_id=9645">Download</a></li>
@@ -112,6 +113,7 @@ Blom
 
 
 <!-- The footer with logos -->
+<div id="footer">
 <p>
 <a href="http://validator.w3.org/check?uri=referer"><img
     src="http://www.w3.org/Icons/valid-xhtml10"
@@ -126,6 +128,7 @@ Blom
     src="http://developer.berlios.de/bslogo.php?group_id=3406"
     width="124" height="32" alt="BerliOS Developer Logo" /></a>
 </p>
+</div>
 
 <!-- The "switch stylesheet" panel -->
 <table id='switcher'>

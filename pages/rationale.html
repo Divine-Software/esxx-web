@@ -18,14 +18,18 @@ developing ESXX.</p>
 
 <h2>Filter chains</h2>
 
-<p>While sometimes useful, invoking custom filters is just one line of
-code, right before or after the actual request processing code. So
-instead of specifying filter rules in some distant XML file, you specify
-it right in the request handler. I believe that's a more suitable place
-for it.</p>
+<p>I used to say otherwise, but filter chains are now available in ESXX
+and it's a good thing to have. It's never too late to change your
+mind.</p>
 
 
 <h2>O/R mapping</h2>
+
+<p>First of all, let me just say that there are third party JavaScript
+ORM frameworks available (such as 
+<a href="http://activerecordjs.org/">ActiveRecord.js</a> or 
+<a href="http://code.google.com/p/trimpath/wiki/TrimJunction">TrimJunction</a>)
+that could, and probably should, be ported to ESXX.</p>
 
 <p>An object-relational mapper tries to make a relational database into
 something that it isn't. ESXX uses a dynamically typed language and XML,
