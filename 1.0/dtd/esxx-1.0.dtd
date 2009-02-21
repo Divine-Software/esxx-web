@@ -2,9 +2,13 @@
 
      The public ID for this DTD is:
      '-//Martin Blom//DTD ESXX Application 1.0//EN'
+
+     Example DOCTYPE declaration:
+     <!DOCTYPE esxx PUBLIC "-//Martin Blom//DTD ESXX Application 1.0//EN"
+	       "http://esxx.org/1.0/dtd/" >
 -->
 
-<!ELEMENT esxx			(info?, handlers) >
+<!ELEMENT esxx			(info?, handlers?, filters?) >
 <!ATTLIST esxx			xmlns CDATA
 				#FIXED "http://esxx.org/1.0/" >
 
@@ -22,25 +26,44 @@
 <!ELEMENT author		(#PCDATA) >
 <!ELEMENT description		(#PCDATA) >
 
-<!ELEMENT handlers		((http | soap)+,
-                                stylesheet*,
-				error?) >
+<!ELEMENT handlers		((http | soap | stylesheet | timer)*,
+				error?,
+				exit?) >
 
 <!ELEMENT http			EMPTY >
 <!ELEMENT soap			EMPTY >
 <!ELEMENT stylesheet		EMPTY >
+<!ELEMENT timer			EMPTY >
 <!ELEMENT error			EMPTY >
+<!ELEMENT exit			EMPTY >
 
 
 <!ATTLIST http			method		NMTOKEN #REQUIRED >
-<!ATTLIST http			uri		NMTOKEN #IMPLIED >
-<!ATTLIST http			handler		CDATA #REQUIRED >
+<!ATTLIST http			uri		CDATA #IMPLIED >
+<!ATTLIST http			handler		NMTOKEN #REQUIRED >
 
 <!ATTLIST soap			action		CDATA #IMPLIED>
-<!ATTLIST soap			object		NMTOKEN #REQUIRED >
+<!ATTLIST soap			uri		CDATA #IMPLIED >
+<!ATTLIST soap			object		NMTOKEN #IMPLIED >
+
+<!ATTLIST timer			delay		CDATA #IMPLIED>
+<!ATTLIST timer			period		CDATA #IMPLIED >
+<!ATTLIST timer			handler		NMTOKEN #REQUIRED >
 
 <!ATTLIST error			handler		NMTOKEN #REQUIRED >
 
+<!ATTLIST exit			handler		NMTOKEN #REQUIRED >
+
 <!ATTLIST stylesheet		media-type	CDATA #IMPLIED >
-<!ATTLIST stylesheet		href		CDATA #IMPLIED >
+<!ATTLIST stylesheet		uri		CDATA #IMPLIED >
+<!ATTLIST stylesheet		href		CDATA #REQUIRED >
 <!ATTLIST stylesheet		type		CDATA #FIXED "text/xsl" >
+
+
+<!ELEMENT filters		(filter)+ >
+
+<!ELEMENT filter		EMPTY >
+
+<!ATTLIST filter		method		NMTOKEN #IMPLIED >
+<!ATTLIST filter		uri		CDATA #IMPLIED >
+<!ATTLIST filter		handler		NMTOKEN #REQUIRED >
