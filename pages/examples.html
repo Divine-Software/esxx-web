@@ -141,7 +141,7 @@ already written? Yeah, I know&nbsp;&hellip; Very novel. Let's get started.</p>
 &lt;/esxx>
 
 &lt;?esxx
-var db = new URI("jdbc:h2:mem:wall");
+var db = new URI("jdbc:h2:mem:wall;DB_CLOSE_DELAY=-1");
 
 if (db.query("SELECT count(*) AS cnt " + 
 	     "FROM information_schema.tables " +
