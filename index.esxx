@@ -20,4 +20,9 @@
     <!-- Stylesheet -->
     <stylesheet media-type="text/html" href="index.xslt"/>
   </handlers>
+
+  <filters>
+    <!-- XSLT parameter filter -->
+    <filter handler="main.setXSLTParams" />
+  </filters>
 </esxx>
