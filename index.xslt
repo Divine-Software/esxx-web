@@ -33,7 +33,8 @@
        <error>
 	 <title>ESXX Server Error</title>
 	 <subtitle>File not found</subtitle>
-	 <body>Stack trace ...</body>
+	 <message>Error message</message>
+	 <stacktrace>Stack trace ...</stacktrace>
        </error> 
   -->
 
@@ -53,7 +54,11 @@
 
 	<post title="{title}" date="{current-dateTime()}">
 	  <h3><xsl:value-of select="subtitle" /></h3>
-	  <pre><xsl:value-of select="body" /></pre>
+	  <p><xsl:value-of select="message" /></p>
+	  <xsl:if test="stacktrace/text()">
+	    <h3>Stack trace</h3>
+	    <pre class="stacktrace"><xsl:value-of select="stacktrace" /></pre>
+	  </xsl:if>
 	</post>
 
 	<sidebar>
@@ -209,7 +214,7 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 (function() {
   var f = document.getElementById("cse-search-box");
   if (f) if (f.q) {
-    f.q.onblur  = function() { f.q.value = "Search site, blog and wiki"; };
+    f.q.onblur  = function() { f.q.value = "Search site, blog, wiki"; };
     f.q.onfocus = function() { f.q.value = ""; };
     f.q.onblur();
   }
@@ -267,7 +272,7 @@ pageTracker._trackPageview();
     <div class="post">
       <div class="title">
 	<h2><xsl:value-of select="@title" /></h2>
-	<p><xsl:value-of select="my:date(@date)" /></p>
+<!--	<p><xsl:value-of select="my:date(@date)" /></p> -->
       </div>
 
       <div class="entry">
@@ -421,11 +426,20 @@ pageTracker._trackPageview();
   </xsl:template>
 
 
-  <!-- my:date formats a date as "Month NNth, year" -->
+  <!-- my:date formats a date string as "Month NNth, year" -->
   <xsl:function name="my:date">
     <xsl:param name="date" />
     <xsl:variable name="dt" select="xs:dateTime(translate($date, ' ', 'T'))" />
     <xsl:value-of select="format-dateTime($dt, '[MNn] [D1o], [Y]', 'en', (), ())" />
   </xsl:function>
-    
+
+  <!-- my:format-java-date formats a Java timestamp as "YYYY-MM-DD, HH:MM:SS" -->
+  <xsl:function name="my:format-java-date">
+    <xsl:param name="millis" />
+    <xsl:variable name="dt" select="xs:dateTime('1970-01-01T00:00:00') 
+				    + $millis * xs:dayTimeDuration('PT0.001S')"/>
+    <xsl:value-of select="format-dateTime($dt, '[Y0001]-[M01]-[D01] [H01]:[m01]:[s01]', 
+			  'en', (), ())" />
+  </xsl:function>
+
 </xsl:stylesheet>

@@ -77,7 +77,7 @@ function Main.prototype.error(req, ex) {
 			   <error>
 			   <title>I'm feeling dizzy</title>
 			   <subtitle>{ex.getClass().getName()}</subtitle>
-			   <body>{ex}</body>
+			   <message>{ex}</message>
 			   </error>, "text/html");
 }
 
