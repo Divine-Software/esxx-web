@@ -17,6 +17,17 @@
   <xsl:param name="newsFeed" />
   <xsl:param name="blogFeed" />
 
+  <xsl:variable name="menu">
+    <ul>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">Wiki</a></li>
+      <li><a href="http://esxx.blogspot.com/">Blog</a></li>
+      <li><a href="http://developer.berlios.de/project/showfiles.php?group_id=9645">Download</a></li>
+      <li><a href="http://developer.berlios.de/projects/esxx/">Contribute</a></li>
+      <li><a href="license.html">License</a></li>
+    </ul>
+  </xsl:variable>
+
   <!-- The identity transform, except that PIs and comments are stripped -->
   <xsl:template match="element()">
     <xsl:copy>
@@ -41,17 +52,6 @@
   <xsl:template match="/error">
     <xsl:variable name="view">
       <view>
-	<menu>
-	  <ul>
-	    <li><a href="examples.html">Examples</a></li>
-	    <li><a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">Wiki</a></li>
-	    <li><a href="http://esxx.blogspot.com/">Blog</a></li>
-	    <li><a href="http://developer.berlios.de/project/showfiles.php?group_id=9645">Download</a></li>
-	    <li><a href="http://developer.berlios.de/projects/esxx/">Contribute</a></li>
-	    <li><a href="license.html">License</a></li>
-	  </ul>
-	</menu>
-
 	<post title="{title}" date="{current-dateTime()}">
 	  <h3><xsl:value-of select="subtitle" /></h3>
 	  <p><xsl:value-of select="message" /></p>
@@ -126,17 +126,6 @@
   <xsl:template match="/x:page | /not-found">
     <xsl:variable name="view">
       <view>
-	<menu>
-	  <ul>
-	    <li><a href="examples.html">Examples</a></li>
-	    <li><a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">Wiki</a></li>
-	    <li><a href="http://esxx.blogspot.com/">Blog</a></li>
-	    <li><a href="http://developer.berlios.de/project/showfiles.php?group_id=9645">Download</a></li>
-	    <li><a href="http://developer.berlios.de/projects/esxx/">Contribute</a></li>
-	    <li><a href="license.html">License</a></li>
-	  </ul>
-	</menu>
-
 	<xsl:choose>
 	  <xsl:when test="local-name() = 'page'">
 	    <post title="{@title}" date="{@date}">
@@ -198,7 +187,7 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 	<div id="bg2">
 	  <div id="header2">
 	    <div id="menu">
-	      <xsl:apply-templates select="x:menu/*" />
+	      <xsl:apply-templates select="$menu/*" />
 	    </div>
 	    
 	    <div id="search">
