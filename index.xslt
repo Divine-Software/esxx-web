@@ -299,7 +299,7 @@ pageTracker._trackPageview();
   <!-- Donation table -->
   <xsl:template name="donations">
 <table summary="Donation options">
-<caption>Encourage futher development by making a donation!</caption>
+<caption>Encourage further development by making a donation!</caption>
 <thead><tr>
 <td>&#8364; 10</td>
 <td>&#8364; 50</td>
