@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<tips xmlns="http://www.w3.org/1999/xhtml">
+  <tip>
+    ESXX is written in pure Java, which means it runs on
+virtually any platform.
+  </tip>
+
+  <tip>
+    ESXX comes with a built-in SQL database
+called <a href="http://www.h2database.com/">H2</a>.
+  </tip>
+
+  <tip>
+    You can query DNS servers using the <tt>dns:</tt> URI scheme.
+  </tip>
+
+  <tip>
+    There are binary packages for Mac OSX, Linux (RPM and DEB),
+OpenSolaris and Windows. Or you can build it yourself from source.
+  </tip>
+
+  <tip>
+    By using E4X, you can avoid XSS attacks on your code.
+  </tip>
+
+  <tip>
+    ESXX comes with a built-in web server.
+  </tip>
+
+  <tip>
+    By using the <tt>--db-console</tt> command line switch, you can
+access a built-in SQL console.
+  </tip>
+  
+</tips>

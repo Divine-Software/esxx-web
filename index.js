@@ -1,6 +1,8 @@
 
 esxx.include("esxx/harmony.js");
 
+const XHTML = new Namespace("http://www.w3.org/1999/xhtml");
+
 function Main() {
   this.started = new Date();
 
@@ -11,7 +13,11 @@ function Main() {
   this.newsURI = new URI("http://developer.berlios.de/export/rss20_bsnews.php?group_id=9645");
   this.newsFeed = null;
   this.newsUpdated = 0;
+
+  this.numTips = esxx.document.XHTML::tips.XHTML::tip.length();
 }
+
+
 
 function Main.prototype.page(req) {
   var page = req.args.page || "index.html";
@@ -145,6 +151,7 @@ function Main.prototype.setXSLTParams(req, next) {
   res.params.baseURI = new URI(req.scriptURI, "..");
   res.params.newsFeed = this.newsFeed;
   res.params.blogFeed = this.blogFeed;
+  res.params.tip = esxx.document.XHTML::tips.XHTML::tip[Math.floor(Math.random() * this.numTips)];
 
   return res;
 }

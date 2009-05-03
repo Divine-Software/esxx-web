@@ -16,6 +16,7 @@
   <xsl:param name="baseURI" />
   <xsl:param name="newsFeed" />
   <xsl:param name="blogFeed" />
+  <xsl:param name="tip" />
 
   <xsl:variable name="menu">
     <ul>
@@ -148,6 +149,11 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 	<sidebar>
 	  <ul>
 	    <li>
+	      <h2>Did you know?</h2>
+	      <xsl:apply-templates select="$tip" />
+	    </li>
+
+	    <li>
 	      <h2>News</h2>
 
 	      <xsl:apply-templates select="$newsFeed" />
@@ -277,6 +283,10 @@ pageTracker._trackPageview();
     </div>
   </xsl:template>
 
+  <!-- Tip -->
+  <xsl:template match="x:tip">
+    <p><xsl:copy-of select="node()" /></p>
+  </xsl:template>
 
   <!-- News/Blog Atom Feed rules -->
   <xsl:template match="atom:feed">
