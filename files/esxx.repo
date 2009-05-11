@@ -1,0 +1,5 @@
+[esxx]
+name=ESXX
+baseurl=http://esxx.org/repos/rpm/
+enabled=1
+gpgcheck=0

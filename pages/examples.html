@@ -187,7 +187,7 @@ using <code>&lt;?esxx?></code>, but that's something you would normally
 
 <p>In the example, we define two <code>GET</code> and <code>POST</code>
 handlers, <code>showMessages()</code> and <code>addMessage()</code>, and
-an <a href="wall.xslt">XSLT stylesheet</a> that will be triggered by all
+an <a href="files/wall.xslt">XSLT stylesheet</a> that will be triggered by all
 XML results.</p>
 
 <p>The handlers can return different kinds of data, like plain text,
@@ -214,7 +214,7 @@ message.</li>
   <li>Once the response has been returned
 from <code>getMessages()</code>, the result is transformed into HTML by
 the XSLT stylesheet. The final document will contain an HTML form where
-new messages can be entered. Have a look at <a href="wall.xslt">the
+new messages can be entered. Have a look at <a href="files/wall.xslt">the
 stylesheet</a> to see how it's done.</li>
   <li>If a message is entered and the user presses the submit button,
 the <code>POST</code> request will trigger the <code>addMessage()</code>
