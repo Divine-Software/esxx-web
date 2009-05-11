@@ -23,7 +23,7 @@
       <li><a href="examples.html">Examples</a></li>
       <li><a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">Wiki</a></li>
       <li><a href="http://esxx.blogspot.com/">Blog</a></li>
-      <li><a href="http://developer.berlios.de/project/showfiles.php?group_id=9645">Download</a></li>
+      <li><a href="download.html">Download</a></li>
       <li><a href="http://developer.berlios.de/projects/esxx/">Contribute</a></li>
       <li><a href="license.html">License</a></li>
     </ul>

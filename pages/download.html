@@ -12,22 +12,21 @@
 
 <page xmlns="http://www.w3.org/1999/xhtml" title="Download options">
 
-<p>ESXX is available in several different packages that can be
+<p>ESXX is available as several different packages that can be
 downloaded manually. We also host a couple of package repositories for
 Linux and OpenSolaris.</p>
 
-<p>For OSX, the recommended way to stay updated is to subscribe to
-ESXX on <a href="http://osx.iusethis.com/app/esxx">i use this</a> with
-<a href="http://metaquark.de/appfresh/">AppFresh</a>.</p>
 
-<h2>Direct download</h2>
+<h2>Manual installation</h2>
 
-<p>If you just wish
-to check it out, a manual download from <a
-href="http://developer.berlios.de/project/showfiles.php?group_id=9645">BerliOS</a>
-is probably the best option.</p>
+<p>If you just wish to check ESXX out, a <a
+href="http://developer.berlios.de/project/showfiles.php?group_id=9645">direct
+download</a> from BerliOS is probably the best option.</p>
 
-
+<p>Consider adding the <a
+href="http://developer.berlios.de/export/rss20_bsnewreleases.php?group_id=9645">release
+feed</a> to your favourite RSS reader to get notifications when ESXX
+is updated.</p>
 
 <h2>CentOS, Fedora and RHEL, using <var>yum</var></h2>
 
@@ -42,9 +41,18 @@ enabled=1
 gpgcheck=0
 </pre>
 
+
 <h2>Debian and Ubuntu, using <var>apt-get</var></h2>
 
 <p></p>
+
+
+<h2>Mac OSX, using <em>AppFresh</em></h2>
+
+<p>For OSX, the recommended way to stay updated is to subscribe to
+ESXX on <a href="http://osx.iusethis.com/app/esxx">i use this</a> with
+<a href="http://metaquark.de/appfresh/">AppFresh</a>.</p>
+
 
 <h2>OpenSolaris, using <var>pkg</var> (IPS)</h2>
 
@@ -53,5 +61,7 @@ gpgcheck=0
 <pre class="example">
 pkg set-authority -O http://esxx.org/repos/ips/ esxx.org
 </pre>
+
+
 
 </page>
