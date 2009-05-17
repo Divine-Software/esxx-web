@@ -14,157 +14,52 @@
 
 <p>Welcome to ESXX, the free, easy-to-install, easy-to-use, no-nonsense
 JavaScript/ECMAscript application server! ESXX is currenlty in 
-<strong>alpha stage</strong>, which means that the APIs have not yet
-completely stabilized; however, it's already quite usable and well worth
-a try.</p>
+<strong>beta stage</strong>, which means that the APIs should now be
+stable, although maybe not fully complete. Even though there is still a
+lot of work left before we leave beta, ESXX is stable, quite usable and
+well worth a try.</p>
 
-<p>Source code and binary packages, licensed under the GPL version 3 or
-later, are available from the
-<a href="http://developer.berlios.de/projects/esxx/">BerliOS project
-page</a>.</p>
+<p>ESXX is available under the GPL license, version 3 or later. Non-GPL
+licenses and various support options will be available later.</p>
 
 
 <h2>Introduction</h2>
 
 <p>
-<img src="/gfx/esxx-arch.png" alt="ESXX Architecture" class="right" width="256" height="312"/>
-ESXX, pronounced <em>Essex</em>, is web application server that
-executes web applications written in JavaScript (a.k.a. ECMAscript) on
-the server-side. It's written in Java and has <i>no</i> external
-dependencies except for J2SE 6.0 &mdash; everything else that's required
-is packaged in one single, executable JAR file, ready to be tested in
-Linux, OSX, Solaris, Windows or any other platform where Java 6 is
-available.</p>
+ESXX is pronounced <em>Essex</em> and is a Java-based web application
+server that executes web applications written in JavaScript
+(a.k.a. ECMAscript) on the server. It's available for Linux, OSX,
+Solaris, Windows and any other platform where Java 6 is available.</p>
 
-<p><em>Simplicity</em> does not have to mean <q>limiting</q>
-or <q>incomplete</q>, though. Some of the highlights of ESXX are:</p>
+<h3>Why JavaScript?</h3>
 
-<dl>
-  <dt><strong>JavaScript 1.7</strong>, provided by Rhino.</dt>
-  <dd>Modern JavaScript really is a fantastic language. We'll be tracking
-Rhino releases, so expect 1.8 in the future.</dd>
+<p>Server-side JavaScript has been available ever since Netscape
+released version 2.0 of their Enterprise Server in 1996, but has never
+quite caught on. But JavaScript has evolved <em>a lot</em> since then
+and is today an excellent language &mdash; some might say the very best
+&mdash; for rapid development, especially when it comes to processing
+XML data, where E4X makes it simply outstanding.</p>
 
-  <dt><strong>E4X extensions</strong></dt>
-  <dd>Meaning unparallelled ease of use when working with XML
-documents.</dd>
+<p>Combined with the fantastic Java runtime, it provides everything a
+developer could ever wish for, in an agile kind of way.</p>
 
-  <dt><strong>XSLT 2.0</strong>, provided by Saxon 9</dt>
-  <dd>For state-of-the-art XML transformations with access to
-user-defined JavaScript and Java extension functions directly from the
-XSLT templates.</dd>
+<h3>Why ESXX?</h3>
 
-  <dt>Embedded <strong>SQL database</strong> (H2)</dt>
-  <dd>For quick prototyping or situations where a non-distributed web
-application is simply good enough.</dd>
+<p>ESXX tries hard to make it easier to write secure, scalable and
+robust web services and sites than it is not to, yet never stand in the
+way of the developer's creativity.</p>
 
-  <dt>Built-in <strong>web server</strong></dt>
-  <dd>Suitable for development and small-scale deployments.</dd>
+<p>The goal is to let you deliver production-ready code faster and
+cheaper. ESXX is easy to learn, easy to use and easy to deploy. For a
+more technical introduction to ESXX, <a href="tech.html">look
+here</a>.</p>
 
-  <dt><strong>Secure by default</strong></dt>
-  <dd>ESXX is designed to make the applications immune to SQL injection
-or XSS attacks.  <a
-href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX_-_Security_advantages">More
-&hellip;</a></dd>
+<h2>Get started now!</h2>
 
-  <dt>Encourages <strong>layer separation</strong>
-and <strong>state-less design</strong></dt>
-  <dd>Resulting in highly scalable, easily maintainable web
-applications.</dd>
-
-  <dt>Ready for the <strong>multi-core</strong> era</dt>
-  <dd>Supports multithreaded JavaScript applications with easy-to-use
-<strong>fork/join</strong> and <strong>parallel array</strong>
-primitives.  <a
-href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX_-_ESXX#Methods">More
-&hellip;</a></dd>
-
-  <dt>A <strong>RESTful mindset</strong></dt>
-  <dd>It encourages good-looking URIs and exposes web
-services/resources, local files, LDAP directories and SQL databases
-using the same API.</dd>
-
-  <dt>Full access to <strong>J2SE 6</strong></dt>
-  <dd>That's thousands of useful classes and arguably one of the best
-runtime environments on the planet. Naturally, you can plug in your own
-or 3rd party Java code too, as well as native JNI modules.</dd>
-
-  <dt>Remotely controllable via <strong>JMX</strong></dt>
-  <dd>Unload or view statistics about running applications directly from
-VisualVM or JConsole.</dd>
-
-  <dt><strong>Standards-based</strong></dt>
-  <dd>JavaScript, XML, XSLT, SQL, Java &nbsp;&hellip; This is stuff you
-probably already know, so you'll be productive in no time.</dd> 
-</dl>
-
-<!--
-<ul>
-  <li><strong>JavaScript 1.7</strong>, provided by Rhino. Modern
-JavaScript really is a fantastic language. We'll be tracking Rhino
-releases, so expect 1.8 and 2.0 in the future.</li>
-  <li><strong>E4X extensions</strong>, meaning unparallelled ease of use
-when working with XML documents.</li>
-  <li><strong>XSLT 2.0</strong>, provided by Saxon 9, for
-state-of-the-art XML transformations with access to user-defined
-JavaScript and Java extension functions directly from the XSLT
-templates.</li>
-  <li>Embedded <strong>SQL database</strong> (H2), for quick prototyping
-or situations where a non-distributed web application is simply good
-enough.</li>
-  <li>Built-in <strong>web server</strong>, suitable for development and
-small-scale deployments.</li>
-  <li><strong>Secure by default</strong>: ESXX is designed to make the
-applications immune to SQL injection or XSS attacks.
-<a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX_-_Security_advantages">More &hellip;</a></li>
-  <li>Encourages <strong>layer separation</strong>
-and <strong>state-less design</strong>, resulting in highly scalable,
-easily maintainable web applications.</li>
-  <li>Ready for the <strong>multi-core</strong> era: supports
-multithreaded JavaScript applications with easy-to-use 
-<strong>fork/join</strong> and <strong>parallel array</strong>
-primitives.
-<a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX_-_ESXX#Methods">More &hellip;</a></li>
-  <li>A <strong>RESTful mindset</strong> that encourages good-looking
-URIs and exposes web services/resources, local files, LDAP directories
-and SQL databases using the same API.</li>
-  <li>Full access to <strong>J2SE 6</strong>: That's thousands of useful
-classes and arguably one of the best runtime environments on the
-planet. Naturally, you can plug in your own or 3rd party Java code too,
-as well as native JNI modules.</li>
-  <li>Remotely controllable via <strong>JMX</strong>: unload or view
-statistics about running applications directly from
-VisualVM or JConsole.</li>
-  <li><strong>Standards-based</strong>: JavaScript, XML, XSLT, SQL, Java
-&nbsp;&hellip; This is stuff you probably already know, so you'll be
-productive in no time.</li>
-</ul>
--->
-
-<p>Additionally, ESXX can be used to execute JavaScript <strong>script
-files</strong> right from the command line.
-See <a href="examples.html">here</a> for a few examples.</p>
-
-<!--<p>For a more thorough introduction, please read the <q>Introducing
-ESXX</q> paper.</p>-->
-
-<h2>What it's not</h2>
-
-<p>ESXX is a small runtime for JavaScript web applications, mainly
-intended as a PHP alternative (or, on the small scale, a J2EE
-alternative &mdash; web apps do not <em>have</em> to be big and
-complicated!). It's not a web application framework, although you could
-certainly write one for it.  Specifically:</p>
-
-<ul>
-<li>There is no built-in object-relational mapper.</li>
-<li>There is no automatic session handling or <q>continuations</q>
-support.</li>
-</ul>
-
-<p>But remember, just because something is not directly available in the
-ESXX executable, it doesn't mean it couldn't, or shouldn't, be written
-as a JavaScript framework!</p>
-
-<p><a href="rationale.html">More &hellip;</a></p>
+<p>Have a look at the <a href="examples.html">examples</a>, then visit the
+<a href="download.html">download page</a> to find out how to install
+ESXX. The
+<a href="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:ESXX">wiki</a>
+provides lots of documentation and tutorials that you will find useful.</p>
 
 </page>
