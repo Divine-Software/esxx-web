@@ -297,7 +297,7 @@ pageTracker._trackPageview();
 
   <xsl:template match="atom:entry">
     <li>
-      <xsl:value-of select="my:date(atom:updated)" /><br/>
+      <xsl:value-of select="my:date(atom:published)" /><br/>
       <a href="{atom:link[@rel = 'alternate' and @type = 'text/html']/@href}"
 	 title="{atom:summary}">
 	<xsl:value-of select="atom:title" />

@@ -106,7 +106,7 @@ function Main.prototype.setXSLTParams(req, next) {
 
 	this.newsFeed.* += <entry xmlns="http://www.w3.org/2005/Atom">
 	  <title>{item.title}</title>
-	  <updated>{date.toISOString()}</updated>
+	  <published>{date.toISOString()}</published>
 	  <summary>{item.description.toString().substring(0, 255)}</summary>
 	  <link rel="alternate" type="text/html" href={item.link}/>
 	  </entry>;
@@ -148,7 +148,7 @@ function Main.prototype.setXSLTParams(req, next) {
 
   let res = next();
 
-  res.params.baseURI = new URI(req.scriptURI, "..");
+  res.params.baseURI = req.scriptURI;
   res.params.newsFeed = this.newsFeed;
   res.params.blogFeed = this.blogFeed;
   res.params.tip = esxx.document.XHTML::tips.XHTML::tip[Math.floor(Math.random() * this.numTips)];
