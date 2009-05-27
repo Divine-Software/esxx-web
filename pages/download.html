@@ -17,6 +17,22 @@ downloaded manually. We also host a couple of package repositories for
 Linux and OpenSolaris.</p>
 
 
+<h2>Attention OpenJDK users!</h2>
+
+<p>Due to a packaging bug in OpenJDK (reported against 
+<a href="http://icedtea.classpath.org/bugzilla/show_bug.cgi?id=179">IcedTea</a>,
+<a href="http://www.openoffice.org/issues/show_bug.cgi?id=91641">OpenOffice.org</a>,
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=475892">Fedora</a> and
+<a href="https://bugs.launchpad.net/ubuntu/+source/openjdk-6/+bug/255149">Ubuntu</a>),
+ESXX may fail with a <em>Constructor for "XML" not found</em> or a similar
+error message. To work around this problem, please remove the rhino.jar
+symlink from the JRE directory. Depending on your OS, it could be
+located in 
+<var>/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/rhino.jar</var>, 
+<var>/usr/lib/jvm/java-6-openjdk/jre/lib/rhino.jar</var> or a similar location.
+
+If you're using Sun's version of Java 6, this is not an issue.</p>
+
 <h2>Manual installation</h2>
 
 <p>If you just wish to check ESXX out for the first time, or if you're a Windows user,
