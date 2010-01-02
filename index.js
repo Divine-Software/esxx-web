@@ -70,9 +70,19 @@ function Main.prototype.page(req) {
   }
 }
 
+function Main.prototype.binary(req) {
+  var file = new java.io.File(new URI(esxx.location, req.args.page).javaURI);
+
+  if (!file.exists() || file.isDirectory()) {
+    return this.notFound(req);
+  }
+
+  return file;
+}
+
 function Main.prototype.notFound(req) {
   var page = req.args.page || "index.html";
-
+esxx.log.info(page);
   return new ESXX.Response(ESXX.Response.NOT_FOUND, {},
 			   <not-found>{page}</not-found>, "text/html");
 }

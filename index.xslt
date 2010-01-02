@@ -154,13 +154,13 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 	    </li>
 
 	    <li>
-	      <h2>News</h2>
+	      <h2><a href="http://developer.berlios.de/news/?group_id=9645">News</a></h2>
 
 	      <xsl:apply-templates select="$newsFeed" />
 	    </li>
 
 	    <li>
-	      <h2>Latest blog posts</h2>
+	      <h2><a href="http://esxx.blogspot.com/">Latest blog posts</a></h2>
 
 	      <xsl:apply-templates select="$blogFeed" />
 	    </li>

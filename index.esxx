@@ -15,6 +15,7 @@
   <handlers>
     <!-- Page handlers -->
     <http handler="main.page"     method="GET" uri="/(?{page}\w+\.html)?"/>
+    <http handler="main.binary"   method="GET" uri="/(?{page}(0.9|1.0|css|files|gfx|js)/.*)"/>
     <http handler="main.notFound" method="GET" uri="/(?{page}.*)"/>
 
     <!-- Error handler -->
