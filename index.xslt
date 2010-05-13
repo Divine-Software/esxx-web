@@ -150,6 +150,11 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 	  <ul>
 	    <li>
 	      <h2>Did you know?</h2>
+	      <a href="http://flattr.com/thing/1327/ESXX-Friendly-Server-side-JavaScript" 
+		 target="_blank">
+		<img src="http://api.flattr.com/button/button-static-50x60.png" 
+		     title="Flattr this" border="0" class="right"/>
+	      </a>
 	      <xsl:apply-templates select="$tip" />
 	    </li>
 
@@ -178,6 +183,7 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
       <head>
 	<title>ESXX &#8212; <xsl:value-of select="x:post/@title" /></title>
 	<meta name="keywords" content="ssjs, server-side javascript, ecmascript, xml, application server"/>
+        <meta name="google-site-verification" content="sJoabVdANiaOz4jctmQVSx0ghra1Yex3eK5w7AK5NlU" />
 	<link href="mailto:martin@blom.org" rev="made" />
 	<link href='http://esxx.org/favicon.ico' rel='shortcut icon' type='image/vnd.microsoft.icon'/>
 	<link href="{$baseURI}css/esxx.css" rel="stylesheet" type="text/css" media="screen" />
