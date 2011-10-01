@@ -22,7 +22,7 @@ function Main() {
 function Main.prototype.page(req) {
   var page = req.args.page || "index.html";
 
-  var file_info = new URI("pages/").load().*.(name == page);
+  var file_info = new URI("pages/").load("text/xml").*.(name == page);
 
   if (file_info.length() == 1) {
     // Calculate the Last-Modified header based on when the page was
@@ -53,7 +53,7 @@ function Main.prototype.page(req) {
     }
 
     // Load the file and hand it over to the 'text/html' style-sheet.
-    var body = new URI(file_info.@uri).load();
+    var body = new URI(file_info.@uri).load("text/xml");
     body.@date = new Date(parseInt(file_info.lastModified)).toISOString();
 
     var rc = new ESXX.Response(ESXX.Response.OK, headers,
