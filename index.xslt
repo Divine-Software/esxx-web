@@ -237,9 +237,10 @@ contact <a href="mailto:martin@blom.org?subject=ESXX%20page%20not%20found!&amp;b
 		  <xsl:apply-templates select="x:post" />
 		</div>
 
-		<div id="donations">
+<!--		<div id="donations">
 		  <xsl:call-template name="donations" />
-		</div>
+		</div> -->
+	<p>&#160;</p>
 	      </div>
 	    </div>
 	  </div>
