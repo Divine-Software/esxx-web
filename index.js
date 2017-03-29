@@ -158,7 +158,7 @@ function Main.prototype.setXSLTParams(req, next) {
 
   let res = next();
 
-  res.params.baseURI = req.scriptURI;
+  res.params.baseURI = req.scriptURI.toString().replace(/^http:/, 'https:');
   res.params.newsFeed = this.newsFeed;
   res.params.blogFeed = this.blogFeed;
   res.params.tip = esxx.document.XHTML::tips.XHTML::tip[Math.floor(Math.random() * this.numTips)];
